@@ -1,2 +1,13 @@
-h1 Tasks#new
-p Find me in app/views/tasks/new.html.slim
+.nav
+  = link_to 'List of Tasks', tasks_path, class: 'nav-link'
+
+h1 New Task
+
+= form_with model: @task, local: true do |f|
+  .form-group
+    = f.label '名前'
+    = f.text_field :name, class: 'form-control', id: 'task_name'
+  .form-group
+    = f.label '詳細'
+    = f.text_area :description, rows: 5, class: 'form-control', id: 'task_description'
+  = f.submit '登録', class: 'btn btn-outline-info btn-sm'
