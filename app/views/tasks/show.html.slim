@@ -16,3 +16,5 @@ table.table.table-hover
     tr
       th= Task.human_attribute_name(:updated_at)
       td= @task.updated_at
+
+= link_to 'Edit', edit_task_path, class: 'btn btn-primary mr-3'
