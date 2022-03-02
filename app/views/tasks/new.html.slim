@@ -1,2 +1,6 @@
-h1 Tasks#new
-p Find me in app/views/tasks/new.html.slim
+.nav
+  = link_to 'back to List', tasks_path, class: 'nav-link'
+
+h1 New Task
+
+= render partial: 'form', locals: { task: @task }
