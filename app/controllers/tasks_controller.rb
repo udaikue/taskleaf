@@ -27,6 +27,12 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice: "#{task.name}を更新しました( ・∇・)"
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_to tasks_path, notice: "#{task.name}を削除しましたϵ( 'Θ' )϶"
+  end
+
   private
 
   def task_params
