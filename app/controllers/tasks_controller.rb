@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @tasks, notice: "「#{task.name}」を登録しました٩( 'ω' )و"
+      redirect_to @task, notice: "「#{@task.name}」を登録しました٩( 'ω' )و"
     else
       render :new
     end
