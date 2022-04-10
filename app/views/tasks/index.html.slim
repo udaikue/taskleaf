@@ -1,19 +1,19 @@
 h1 List of Tasks
 
-= link_to '+', new_task_path, class: 'btn btn-outline-info btn-sm'
+= link_to '+', new_task_path, class: 'btn btn-warning btn-circle'
 
 .mb3
 table.table.table-hover
   thead.thead-default
     tr
       th= Task.human_attribute_name(:name)
-      th= Task.human_attribute_name(:created_at)
+      th= Task.human_attribute_name(:description)
       th
   tbody
     - @tasks.each do |task|
       tr
-        td= link_to task.name, task_path(task)
-        td= task.created_at
+        td= link_to task.name, task_path(task), class: 'text-decoration-none link-success'
+        td= task.description
         td
-          = link_to 'Edit', edit_task_path(task), class: 'btn btn-primary mr-3'
-          = link_to 'Delete', task, method: :delete, data: { confirm: "#{task.name}を削除してよろしいですか??" }, class: 'btn btn-danger'
+          = link_to '編集', edit_task_path(task), class: 'btn btn-success mr-3'
+          = link_to '削除', task, method: :delete, data: { confirm: "#{task.name}を削除してよろしいですか??" }, class: 'btn btn-danger'

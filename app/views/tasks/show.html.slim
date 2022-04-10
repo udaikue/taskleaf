@@ -1,7 +1,7 @@
 h1 Task Details
 
 .nav
-  = link_to 'back to List', tasks_path, class: 'nav-link'
+  = link_to 'back to List', tasks_path, class: 'nav-link text-decoration-none link-success'
 table.table.table-hover
   tbody
     tr
@@ -17,5 +17,5 @@ table.table.table-hover
       th= Task.human_attribute_name(:updated_at)
       td= @task.updated_at
 
-= link_to 'Edit', edit_task_path, class: 'btn btn-primary mr-3'
-= link_to 'Delete', @task, method: :delete, data: { confirm: "#{@task.name}を削除してよろしいですか??" }, class: 'btn btn-danger'
+= link_to '編集', edit_task_path, class: 'btn btn-success mr-3'
+= link_to '削除', @task, method: :delete, data: { confirm: "#{@task.name}を削除してよろしいですか??" }, class: 'btn btn-danger'

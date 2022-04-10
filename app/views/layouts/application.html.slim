@@ -8,9 +8,12 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.png'
+
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Taskleaf
+    .app-title.navbar.navbar-expand-md.navbar-light
+      .navbar-brand
+        = image_tag('logo.png', size: '100x100')
 
       ul.navbar-nav.ml-auto
         - if current_user
@@ -22,5 +25,5 @@ html
           li.nev-item= link_to 'ログイン', login_path, class: 'nav-link'
     .container
       - if flash.notice.present?
-        .alert.alert-info = flash.notice
+        .alert.alert-dark = flash.notice
       = yield
