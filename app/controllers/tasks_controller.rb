@@ -18,6 +18,7 @@ class TasksController < ApplicationController
 
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
+      SampleJob.perform_later
       redirect_to @task, notice: "「#{@task.name}」を登録しました٩( 'ω' )و"
     else
       render :new
